@@ -15,7 +15,12 @@ const TodoWrapper = () => {
 
     const setNewCard = () => {
         if (input !== '') {
-            setCards([input, ...cards]);
+            setCards([
+                {
+                    label: input,
+                    isDone: false
+                },
+                ...cards]);
             setInput('');
         }
     }
@@ -25,6 +30,19 @@ const TodoWrapper = () => {
             setNewCard();
         }
     }
+
+    const setDone = (index) => {
+        setCards(
+            cards.map((card, cardIndex) => index === cardIndex ? {...card, isDone: !card.isDone} : card)
+        )
+    }
+
+    const removeCard = (index) => {
+        const newCards = cards.filter((card, cardIndex) => {
+            return cardIndex !== index;
+        })
+        setCards(newCards)
+    } 
 
     const inputProps = {
         setNewCard,
@@ -39,13 +57,20 @@ const TodoWrapper = () => {
         buttonWrapper: 'buttonWrapper'
     }
 
+    const todoCardProps = {
+        setDone,
+        removeCard,
+        todoCardWrapper: 'todoCardWrapper'
+    }
+
     return (
         <div className='todoWrapper'>
             <Input {...inputProps}/>
             <Button {...buttonProps}/>
-            {cards.map((card, index) => (
-                <TodoCard key={index} card={card}/>
-            ))}
+            {cards.map((card, index) => {
+                return (
+                <TodoCard key={index} index={index} card={card} {...todoCardProps}/>
+            )})}
         </div>
     )
 }

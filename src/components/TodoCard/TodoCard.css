@@ -6,4 +6,19 @@
     height: auto;
     padding: 10px;
     border-radius: 5px;
+    transition: 1s;
+}
+
+.removeButton {
+    float: right;
+    background-color: red;
+}
+
+.doneButton {
+    float: right;
+    background: green;
+}
+
+.cardDone {
+    text-decoration: underline;
 }
