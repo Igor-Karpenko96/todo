@@ -1,0 +1,29 @@
+.button {
+    box-sizing: border-box;
+    color: gray;
+    cursor: pointer;
+    box-shadow: inset lightgray 0px 0px 5px 2px;
+    padding: 5px 10px;
+    background-color: honeydew;
+    text-transform: uppercase;
+    font-family: monospace;
+    letter-spacing: 2px;
+    font-size: 14px;
+    border: 2px solid lightgray;
+    border-radius: 3px;
+    text-align: center;
+    width: 200px;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button:active {
+    font-size: 12px;
+}
+
+.button:hover {
+    color: black
+}

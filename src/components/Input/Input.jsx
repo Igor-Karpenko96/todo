@@ -1,15 +1,11 @@
 import React from 'react';
+import './Input.css';
 
-const Input = ({ setInputValue, setNewCard, input }) => {
+const Input = ({ setInputValue, input, onKeyEnter, inputWrapper }) => {
 
-    const onKeyEnter = (e) => {
-        if (e.key === 'Enter') {
-            setNewCard();
-        }
-    }
     return (
-        <div>
-            <input type="text" onChange={setInputValue} onKeyDown={onKeyEnter} value={input}/>
+        <div className={inputWrapper}>
+            <input placeholder='enter new task' className='input' type="text" onChange={setInputValue} onKeyDown={onKeyEnter} value={input}/>
         </div>
     )
 }

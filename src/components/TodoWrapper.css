@@ -1,0 +1,12 @@
+.todoWrapper {
+    margin: 0 auto;
+}
+
+.inputWrapper {
+    display: block;
+    margin-top: 20px;
+}
+
+.buttonWrapper {
+    margin-top: 10px;
+}

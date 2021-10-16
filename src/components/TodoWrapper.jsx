@@ -3,6 +3,8 @@ import Button from './Button/Button';
 import Input from './Input/Input';
 import TodoCard from './TodoCard/TodoCard';
 
+import './TodoWrapper.css';
+
 const TodoWrapper = () => {
     const [input, setInput] = useState('');
     const [cards, setCards] = useState([]);
@@ -13,23 +15,32 @@ const TodoWrapper = () => {
 
     const setNewCard = () => {
         if (input !== '') {
-            setCards([...cards, input]);
+            setCards([input, ...cards]);
             setInput('');
+        }
+    }
+
+    const onKeyEnter = (e) => {
+        if (e.key === 'Enter') {
+            setNewCard();
         }
     }
 
     const inputProps = {
         setNewCard,
         setInputValue,
-        input
+        onKeyEnter,
+        input,
+        inputWrapper: 'inputWrapper'
     };
 
     const buttonProps = {
-        setNewCard
+        setNewCard,
+        buttonWrapper: 'buttonWrapper'
     }
 
     return (
-        <div>
+        <div className='todoWrapper'>
             <Input {...inputProps}/>
             <Button {...buttonProps}/>
             {cards.map((card, index) => (
