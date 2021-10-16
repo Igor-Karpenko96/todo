@@ -6,8 +6,10 @@ const TodoCard = ({ card: { label, isDone }, index, removeCard, todoCardWrapper,
     return (
         <div className={`card ${todoCardWrapper}`}>
             <span className={isDone ? 'cardDone' : ''}>{label}</span>
-            <span onClick={() => removeCard(index)} className='removeButton'>Remove</span>
-            <span onClick={() => setDone(index)} className='doneButton'>{isDone ? 'Cancel' : 'Done'}</span>
+            <span className='buttonsWrapper'>
+                <span onClick={() => removeCard(index)} className='removeButton'>Remove</span>
+                <span onClick={() => setDone(index)} className='doneButton'>{isDone ? 'Cancel' : 'Done'}</span>
+            </span>
         </div>
     )
 }

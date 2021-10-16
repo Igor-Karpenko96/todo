@@ -18,7 +18,8 @@ const TodoWrapper = () => {
             setCards([
                 {
                     label: input,
-                    isDone: false
+                    isDone: false,
+
                 },
                 ...cards]);
             setInput('');
@@ -67,10 +68,22 @@ const TodoWrapper = () => {
         <div className='todoWrapper'>
             <Input {...inputProps}/>
             <Button {...buttonProps}/>
-            {cards.map((card, index) => {
-                return (
-                <TodoCard key={index} index={index} card={card} {...todoCardProps}/>
-            )})}
+            <span className='cardsColumnWrapper'>
+                <div className='cardsColumn'>
+                    <span>In Progress</span>
+                    {cards.map((card, index) => {
+                        return (
+                        !card.isDone && <TodoCard key={index} index={index} card={card} {...todoCardProps}/>
+                    )})}
+                </div>
+                <div className='cardsColumn'>
+                    <span>Done</span>
+                    {cards.map((card, index) => {
+                        return (
+                        card.isDone && <TodoCard key={index} index={index} card={card} {...todoCardProps}/>
+                    )})}
+                </div>
+            </span>
         </div>
     )
 }

@@ -1,5 +1,6 @@
 .todoWrapper {
     margin: 0 auto;
+    text-align: center;
 }
 
 .inputWrapper {
@@ -9,4 +10,15 @@
 
 .buttonWrapper {
     margin-top: 10px;
+}
+
+.cardsColumnWrapper {
+    display: flex;
+    justify-content: center;
+    width: 700px;
+    margin: 0 auto;
+}
+
+.cardsColumn {
+    width: 50%;
 }
