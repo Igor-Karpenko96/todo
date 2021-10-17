@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from './Button/Button';
 import Input from './Input/Input';
 import TodoCard from './TodoCard/TodoCard';
+import Dashboard from './DashBoard/DashBoard';
 
 import './TodoWrapper.css';
 
@@ -19,7 +20,6 @@ const TodoWrapper = () => {
                 {
                     label: input,
                     isDone: false,
-
                 },
                 ...cards]);
             setInput('');
@@ -38,9 +38,9 @@ const TodoWrapper = () => {
         )
     }
 
-    const removeCard = (index) => {
-        const newCards = cards.filter((card, cardIndex) => {
-            return cardIndex !== index;
+    const removeCard = (cardIndex) => {
+        const newCards = cards.filter((card, index) => {
+            return index !== cardIndex;
         })
         setCards(newCards)
     } 
@@ -84,6 +84,7 @@ const TodoWrapper = () => {
                     )})}
                 </div>
             </span>
+            <Dashboard/>
         </div>
     )
 }
